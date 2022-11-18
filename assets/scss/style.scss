@@ -1,3 +1,89 @@
-body{
-    background-color: white;
+$backgroundColor: whitesmoke;
+
+article {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: flex;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 350px;
+    height: 450px;
+    margin: auto;
+    background-color: $backgroundColor;
+    flex-direction: column;
+    overflow: hidden;            
+
+    &:hover {
+        .summary {
+            visibility: visible;
+            display: block;
+        }
+        .photo{
+            animation: zoom-in 2s forwards;
+            height: 150px;
+            width: 100%;
+        }
+    }
+}
+
+.photo {
+    height: 60%;
+    width: 100%;
+    background-image: url(../image/photo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    h1 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+    }
+}
+
+
+.title {
+    margin: 0 15px;
+    text-align: justify;
+    h2{
+        color: coral;
+        font-weight: lighter;
+    }
+}
+
+.summary {
+    visibility: hidden;
+    display: none;
+    margin: 0 15px;
+    text-align: justify;
+}
+
+.stats {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    ul {
+        display: flex;
+        list-style-type: none;
+
+        li {
+            color: grey;
+            margin-right: 30px;
+
+        }
+    }
+}
+
+@keyframes zoom-in{
+    0% {
+      transform: scale(1, 1);
+    }
+    100% {
+      transform: scale(1.2, 1.2);
+    }
 }
