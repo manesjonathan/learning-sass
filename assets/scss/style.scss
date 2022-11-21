@@ -1,89 +1,137 @@
+$backgroundImage: url(../image/photo.webp);
 $backgroundColor: whitesmoke;
+$articleBackground: white;
+$accentColor: orangered;
+$textColor: grey;
+
+body {
+  background-color: $backgroundColor;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
 
 article {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    display: flex;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 350px;
-    height: 450px;
-    margin: auto;
-    background-color: $backgroundColor;
-    flex-direction: column;
-    overflow: hidden;            
+  background-color: $articleBackground;
+  color: $textColor;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 350px;
+  height: 450px;
+  margin: auto;
+  overflow: hidden;
 
-    &:hover {
-        .summary {
-            visibility: visible;
-            display: block;
-        }
-        .photo{
-            animation: zoom-in 2s forwards;
-            height: 150px;
-            width: 100%;
-        }
+
+  &:hover {
+    .summary {
+      visibility: visible;
+      display: block;
+      margin-bottom: 50px;
     }
+    .photo {
+      animation: zoom-in 0.8s forwards;
+      height: 150px;
+      width: 100%;
+    }
+  }
 }
 
 .photo {
-    height: 60%;
-    width: 100%;
-    background-image: url(../image/photo.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    display: flex;
-    h1 {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        margin: auto;
-    }
+  height: 60%;
+  width: 100%;
+  background-image: $backgroundImage;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
 }
 
-
 .title {
-    margin: 0 15px;
-    text-align: justify;
-    h2{
-        color: coral;
-        font-weight: lighter;
-    }
+  margin: 0 15px;
+  text-align: justify;
+
+  h1{
+    font-size: 24px;
+    font-weight: normal;
+  }
+
+  h2 {
+    margin-top: -15px;
+    color: $accentColor;
+    font-weight: lighter;
+  }
 }
 
 .summary {
-    visibility: hidden;
-    display: none;
-    margin: 0 15px;
-    text-align: justify;
+  color: $textColor;
+  visibility: hidden;
+  display: none;
+
+  margin: 0 20px;
+  text-align: justify;
+}
+
+.date-pin {
+  background-color: $accentColor;
+  color: $articleBackground;
+  position: absolute;
+  text-align: center;
+  font-size: 10px;
+  top: 0;
+  right: 0;
+  margin-top: 10px;
+  margin-right: 10px;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+
+  h2 {
+    margin-top: 0;
+  }
+}
+
+.pin {
+  background-color: $accentColor;
+  color: $articleBackground;
+  font-size: 10px;
+  margin-bottom: -50px;
+  position: relative;
+  bottom: 39px;
+  padding: 0 20px;
+  width: fit-content;
 }
 
 .stats {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-left: -20px;
 
-    ul {
-        display: flex;
-        list-style-type: none;
+  ul {
+    display: flex;
+    list-style-type: none;
 
-        li {
-            color: grey;
-            margin-right: 30px;
-
-        }
+    li {
+      color: $textColor;
+      margin-right: 30px;
     }
+  }
 }
 
-@keyframes zoom-in{
-    0% {
-      transform: scale(1, 1);
-    }
-    100% {
-      transform: scale(1.2, 1.2);
-    }
+@keyframes zoom-in {
+  0% {
+    background-size: 100% ;
+    filter: opacity(75%);
+  }
+
+  100% {
+    background-size: 120% ;
+
+    filter: opacity(50%);
+  }
 }
